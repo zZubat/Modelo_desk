@@ -1,18 +1,34 @@
 import React from 'react';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import Home from './Pages/Home';
+import DeliverymanResgiter from './Pages/DeliverymanRegister';
+import DeliverymenList from './Pages/DeliverymenList';
+import PersonCard from './components/personCard/';
+import{Students} from './students';
 
-export default class App extends React.Component {
-    dummy = () => {
-        // Just to test arrow functions
-    }
 
-    render() {
+const App = () => {
         return (
-            <div className={'hello'}>
-                <h2>Hello Electrate</h2>
-                <img src="./assets/logo.png" />
-                <h4>A basic Electron + React.js template</h4>
-                <h4>Have Fun!</h4>
-            </div>
+            <>
+                <HashRouter>
+                    <Switch>
+                        <Route exact path='/' component={Home}/>
+                        <Route path='/deliveryman' component={DeliverymanResgiter}/>
+                        <Route path='/deliverymenList' component={DeliverymenList}/>
+                    </Switch>
+                </HashRouter>
+
+                {/*<h1>lista de estudantes</h1>
+                    <ul>
+                        {Students.map((student, index) => {
+                            return(
+                                <li key={index.toString()}>
+                                    <PersonCard name={student.name} email={student.email} />
+                                </li>
+                            );
+                        })}
+                        
+                    </ul>*/}
+            </>
         );
-    }
 }
