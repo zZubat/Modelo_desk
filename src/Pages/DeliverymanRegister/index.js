@@ -1,6 +1,6 @@
 import React from 'react';
-import GlobalMenu from '../../GlobalMenu'
-import DeliverymanForm from '../../DeliverymanForm'
+import GlobalMenu from '../../components/GlobalMenu';
+import DeliverymanForm from '../../components/DeliverymanForm';
 
 const DeliverymanResgiter = () => {
     return(

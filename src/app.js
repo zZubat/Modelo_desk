@@ -3,6 +3,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import Home from './Pages/Home';
 import DeliverymanResgiter from './Pages/DeliverymanRegister';
 import DeliverymenList from './Pages/DeliverymenList';
+import AssingOrder from './Pages/AssingOrder';
 import PersonCard from './components/personCard/';
 import{Students} from './students';
 
@@ -15,6 +16,7 @@ const App = () => {
                         <Route exact path='/' component={Home}/>
                         <Route path='/deliveryman' component={DeliverymanResgiter}/>
                         <Route path='/deliverymenList' component={DeliverymenList}/>
+                        <Route path='/assingOrder' component={AssingOrder}/>
                     </Switch>
                 </HashRouter>
 
@@ -32,3 +34,6 @@ const App = () => {
             </>
         );
 }
+
+
+export default App;
