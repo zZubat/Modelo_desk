@@ -1,6 +1,29 @@
 import React, { useState } from 'react';
 import Board from '@lourenci/react-kanban';
 import GlobalMenu from '../../components/GlobalMenu';
+import api from '../../services/api'
+
+const DeliverymenPicture = () =>{
+    const [picture, setPicture] = useState();
+
+    const loadingPicture = useCallback(async () => {
+        try {
+            const response = await api.get(`/users`);
+
+            if (response.data){
+                setPicture(response.data);
+            }else {
+                alert("Não Foi Possivel Carregar A Imagem")
+            }
+        } catch (error) {
+            alert(`Ocorreu uma falha ao Carregar A Imagem . ${error}`)
+        }
+    }, []);
+    
+    useEffect(() =>{
+        loadingPicture()
+    }, [loadingPicture]);
+}
 
 const board = {
     columns: [
@@ -52,7 +75,8 @@ const board = {
         },
         {
             id: 2,
-            title: 'mario ',
+            title: {picture.map((p) => {
+            })},
             cards: [],
         },
         {
@@ -118,4 +142,4 @@ const AssingOrder = () => {
     );
 }
 
-export default AssingOrder; 
+export default {AssingOrder, DeliverymenPicture}; 
